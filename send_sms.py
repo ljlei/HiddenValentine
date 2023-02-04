@@ -5,7 +5,7 @@ from flask import request
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST'])
+#@app.route('/', methods=['POST'])
 def sendMsg():
     if request.method == 'POST':
         toNum = request.form['toNum']
