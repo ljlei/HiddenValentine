@@ -6,8 +6,8 @@ from flask import request
 app = Flask(__name__)
 
 #@app.route('/', methods=['POST'])
-def sendMsg():
-    if request.method == 'POST':
+#def sendMsg():
+    #if request.method == 'POST':
         toNum = request.form['toNum']
         msg = request.form['msg']
         account_sid = os.environ[AC644186d0c45f4f77efeeff235a316d00]
@@ -22,4 +22,4 @@ def sendMsg():
             )
 
         print(message.sid)
-	return;
+	#return;
