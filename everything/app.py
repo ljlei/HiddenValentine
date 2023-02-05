@@ -10,7 +10,7 @@ client = Client(account_sid, auth_token)
 app = Flask(__name__, template_folder="templateFiles", static_folder='staticFiles')
 app.config['SECRET_KEY'] = config.secret_key
 
-@app.route("/home")
+@app.route("/", methods=['GET', 'POST'])
 @app.route("/home", methods=['GET', 'POST'])
 def main_page():
     form = Valentine()
@@ -19,7 +19,7 @@ def main_page():
         return redirect(url_for('confirmation'))
     return render_template('index.html', form=form)
 
-@app.route("/home")
+@app.route("/home", methods=['GET', 'POST'])
 def home():
     return render_template('index.html')
 
