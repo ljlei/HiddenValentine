@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Hello! Welcome to Hidden Valentine, <br>send an anonymous message to a special someone ;) <br>or even your friend!</h2>
+    <table>
+        <tr>
+            <td>
+                <form action="" method="POST" novalidate>
+                    {{ form.hidden_tag() }}
+                    <label for="toNum">To:</label><br>
+                    {{ form.recipient(class_="recipient", placeholder="Recipient") }} <br>
+
+                    <label for="msg">Message:</label><br>
+                    {{ form.valentine(class_="message", placeholder="Enter a heartfelt message!") }} <br>
+
+                    {{ form.submit(class_="submit") }} <br>
+                </form>
+            </td>
+        </tr>
+    </table>
+{% endblock %}
