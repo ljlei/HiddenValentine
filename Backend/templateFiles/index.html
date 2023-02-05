@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <div id="banner">
+        <h1>Hidden V♡lentine</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h2>Hello! Welcome to Hidden Valentine, <br>send an anonymous message to a special someone ;) <br>or a good friend!</h2>
+        <div id="card">
+            <form action="" method="POST" novalidate>
+                <!-- keeps the information and form secure -->
+                {{ form.hidden_tag() }}
+
+                <label for="toNum">To:</label><br>
+                {{ form.recipient(class_="recipient", placeholder="Ex: 9498245011") }}
+
+                <!-- Recipient Number Error Message -->
+                {% for error in form.recipient.errors %}
+                <br><h7><span style="color: red;">{{ error }}</span></h7><br>
+                {% endfor %}
+
+                <label for="msg">Message:</label><br>
+                {{ form.valentine(class_="message", placeholder="Enter a heartfelt message!") }}
+                
+                <!-- Valentine Error Message -->
+                {% for error in form.valentine.errors %}
+                <br><h7><span style="color: red;">{{ error }}</span></h7>
+                {% endfor %}
+
+                <br>{{ form.submit(class_="submit") }}
+            </form>
+        </div>
+    <h3>Phone numbers are <u>not</u> being stored <3</h3>
+{% endblock %}
