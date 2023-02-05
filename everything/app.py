@@ -1,14 +1,14 @@
-import config, time
+import config
 from flask import Flask, request, render_template, redirect, url_for
 from twilio.rest import Client
 from classes import Valentine
 
+app = Flask(__name__, template_folder="templateFiles", static_folder='staticFiles')
+app.config['SECRET_KEY'] = config.secret_key
+
 account_sid = config.account_sid
 auth_token  = config.api_key
 client = Client(account_sid, auth_token)
-
-app = Flask(__name__, template_folder="templateFiles", static_folder='staticFiles')
-app.config['SECRET_KEY'] = config.secret_key
 
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/home", methods=['GET', 'POST'])
@@ -35,12 +35,10 @@ def send_message():
     recipient = request.form.get("recipient")
     valentine = request.form.get("valentine")
 
-    confirmation = client.messages.create(
+    client.messages.create(
         to=recipient,
         from_=config.twilio_number,
         body=valentine)
-    
-    print(confirmation)
     
 @app.route('/', defaults={'path': '/home'})
 @app.route('/<path:path>')
@@ -48,4 +46,4 @@ def catch_all(path):
     return app.send_static_file("index.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
