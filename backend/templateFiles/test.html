@@ -9,15 +9,9 @@
                     {{ form.hidden_tag() }}
                     <label for="toNum">To:</label><br>
                     {{ form.recipient(class_="recipient", placeholder="Recipient") }} <br>
-                    {% for error in form.recipient.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
 
                     <label for="msg">Message:</label><br>
                     {{ form.valentine(class_="message", placeholder="Enter a heartfelt message!") }} <br>
-                    {% for error in form.valentine.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
 
                     {{ form.submit(class_="submit") }} <br>
                 </form>

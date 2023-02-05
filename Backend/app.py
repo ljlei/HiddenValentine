@@ -1,5 +1,5 @@
 import config
-from flask import Flask, request, render_template, flash, redirect
+from flask import Flask, request, render_template, redirect, url_for
 from twilio.rest import Client
 from classes import Valentine
 
@@ -15,9 +15,7 @@ def main_page():
     form = Valentine()
     if form.validate_on_submit():
         send_message()
-        return redirect('/')
     return render_template('test.html', form=form)
-
 
 @app.route("/about")
 def about():
@@ -34,3 +32,5 @@ def send_message():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+# return redirect('/')
