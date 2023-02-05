@@ -65,14 +65,32 @@ input[type=submit] {
 }
 
 input[type=text] {
+    width: 315px;
     background-color: rgb(252, 211, 217);
     border-color: #FF9494;
     border-radius: 10px;
-    width: 200px;
+    text-align: center;
 }
 
 textarea {
     background-color: rgb(252, 211, 217);
     border-color: #FF9494;
     border-radius: 10px;
+}
+
+.recipient {
+    width: 315px;
+    background-color: rgb(252, 211, 217);
+    border-color: #FF9494;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.message {
+    background-color: rgb(252, 211, 217);
+    border-color: #FF9494;
+    border-radius: 10px;
+    height: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
